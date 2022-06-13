@@ -13,6 +13,7 @@ function tabuada() {
             let item = document.createElement('option')
             item.text = 
             `${num} x ${c} = ${num*c}`
+            item.value = `tab${c}`
             tab.appendChild(item)
             c++
         }
