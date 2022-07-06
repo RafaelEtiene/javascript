@@ -9,8 +9,9 @@
 <body>
 
   <script>
+    //Criação de promise
     const myPromise = new Promise((resolve, reject) => {
-      const nome = "João"
+      const nome = "Rafael"
 
       if(nome == "Rafael") {
         resolve("Usuário Rafael encontrado")
@@ -22,6 +23,60 @@
     myPromise.then((data) => {
       console.log(data)
     }) 
+
+    //Encadeamento de then's
+
+    const mypromise2 = new Promise((resolve, reject) => {
+      const nome = "Rafael"
+
+      if(nome == "Rafael") {
+        resolve("Usuário Rafael encontrado")
+      } else {
+        reject('O usuário não encontrado!')
+      }
+    })
+
+    mypromise2.then((data) => {
+      return data.toLowerCase()
+    }).then((stringModificada) => {
+      console.log(stringModificada)
+    })
+
+    //Retorno do catch
+
+    const mypromise3 = new Promise((resolve, reject) => {
+      const nome = "Rafael"
+
+      if(nome == "Rafael") {
+        resolve("Usuário Rafael encontrado")
+      } else {
+        reject('O usuário não encontrado!')
+      }
+    })
+
+    mypromise3.then((data) => {
+      console.log(data)
+    }).catch((err) => {
+      console.log('Aconteceu um erro:' + err)
+    })
+
+    //Resolver várias promises
+
+    let p1 = new Promise((resolve, reject) => {
+      resolve('P1 ok!')
+    })
+    let p2 = new Promise((resolve, reject) => {
+      resolve('P2 ok!')
+    })
+    let p3 = new Promise((resolve, reject) => {
+      resolve('P3 ok')})
+
+      let resolveall = Promise.all([p1, p2, p3]).then((data) => {
+        console.log(data)
+      })
+
+      //Várias promises com race
+
   </script>
   
 </body>
